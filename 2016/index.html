@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<!-- Çirkin kod içerir -->
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+  <title>Otomat Hackathon!</title>
+  <style>
+  @font-face {
+  font-family: 'Minecraft';
+  src: url('Minecraft.ttf');
+}
+html,
+  body {
+    font-family: monospace;
+    width: 500px;
+    margin: auto;
+    background: #000;
+    width: 100%;
+    height: 100%;
+    animation: pageanim 5s steps(2) infinite forwards;
+    overflow: hidden;
+  }
+
+  header {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    z-index: 999;
+    left: 0;
+    top: 50%;
+    text-align: center;
+    color: #fff;
+    transform: translateY(-50%);
+    mix-blend-mode: exclusion;
+  }
+
+  header p {
+    font-size: 1.2em;
+  }
+
+  #background {
+    left: 0;
+    top: 0;
+    position: absolute;
+  }
+
+  .overlay {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAQAAADYv8WvAAAAEUlEQVQI12NgePyfgeE/EAIAFBUD4aE/TggAAAAASUVORK5CYII=);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+  }
+
+  span {
+    background: black;
+    display: inline-block;
+    padding: 0 3px;
+  }
+
+  canvas#canvas {
+  width: 512px; height: 512px;
+  position: fixed;
+  z-index: -1;
+  left: 50%;
+  top: 0;
+  width: 100vmax;
+  height: 100vmax;
+
+  image-rendering: pixelated;
+  border: 0;
+  transform: translateX(-50%);
+  animation: canvasanim 5s steps(2) infinite forwards;
+  }
+
+  h3 {
+    font-size: 3.5em;
+    margin: 0;
+    font-weight: 100;
+    font-family: 'Minecraft', monospace;
+    font-smooth: never;
+-webkit-font-smoothing : none;
+  text-shadow: 2px 2px #2bffeb, -2px -2px #E91E63;
+  } h1 {
+    font-family: 'Minecraft', monospace;
+  }
+
+  a.button {
+    display: inline-block;
+    margin-top: 10px;
+    color: #000;
+    padding: 5px 10px;
+    background: #fff;
+    box-shadow: 2px 2px #2bffeb, -2px -2px #E91E63;
+    margin: 10px 10px;
+  }
+
+  header img.otomat {
+      animation: logoanim 1s steps(1) infinite alternate;
+
+  }
+
+  .sponsors-bg {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    height:100px;
+    background: #0af;
+    mix-blend-mode: color-burn;
+    z-index: 1000;
+  }
+
+  .sponsors {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    padding: 20px 0;
+    z-index: 10000;
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .sponsor {
+    display: inline-block;
+    text-decoration: none;
+    vertical-align: middle;
+  }
+
+  .sponsor svg,
+  .sponsor img {
+    height: 50px;
+  }
+
+  @keyframes logoanim {
+    0% {transform: scale(1);
+    }
+    22% {
+transform: scale(1.2) translateX(3px) translateY(4px);
+    }
+    30% {
+     transform: scale(1.1) translateX(-2px) translateY(1px);
+    }
+    50% {
+      transform: scale(1.3);
+    }
+    62% {
+transform: scale(1.2) translateX(-1px) translateY(1px);
+    }
+    95% {
+transform: scale(1.4) translateX(2px) translateY(-2px);
+    }
+    100% {
+transform: scale(1);
+    }
+  }
+
+@keyframes pageanim {
+  66% {
+    transform: rotateZ(0);
+  }
+  67% {
+    transform: rotateZ(180deg);
+  }
+
+  70% {
+    transform: rotateZ(0);
+  }
+
+  97% {
+    transform: rotateZ(0);
+  }
+
+  100% {
+    transform: rotateZ(180deg);
+  }
+}
+
+@@keyframes canvasanim {
+  0% {
+    display: block;
+  }
+
+  24% {
+    display: none;
+  }
+
+  55% {
+    display: block;
+  }
+
+  80% {
+    display: none;
+  }
+}
+
+  </style>
+  <link rel="image_src" href="https://otomat-hackathon.github.io/demo.jpg"/>
+  <meta property="og:image" content="https://otomat-hackathon.github.io/demo.jpg" />
+  <meta name="og:description" content="Creative Coding Hackathon" />
+
+</head>
+<body>
+<canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()"></canvas>
+<div class="overlay"></div>
+<header>
+  <img src="logo.png" class="otomat" style="image-rendering: pixelated;" width="200" />
+  <h1><span>Hackathon</span></h1>
+  <h3><span>Coming soon</span></h3>
+  <p><span>CRUD app yapmaktan sıkılmış geliştiriciler</span> <br /> <span>olarak bir araya gelip bir şeyler yapacağız. Gelsenize!</span></p>
+  <p>
+    <a class="button" href="https://gist.github.com/livacengiz/52466e2add0ad9a64b5a22c922716e8c#file-detail-md" target="BLANK">Detaylar</a>
+    <a class="button" href="mailto:neoberg@gmail.com,fatiherikli@gmail.com">İletişim</a>
+    <!--a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSeYj9YGkPnYi864R0_PEsPFbf1uiUADFGFcTUxNW_TMNqCHnQ/viewform?c=0&w=1">Başvur</a-->
+  </p>
+</header>
+<div class="sponsors-bg">
+</div>
+<div class="sponsors">
+  <a class="sponsor" target="BLANK" href="http://atolye.io" title="ATOLYE">
+  <svg id="logo" viewBox="0 0 60 60" version="1.1" width="50" height="50">
+    <g stroke="none" stroke-width="1" fill="white" fill-rule="evenodd">
+      <g transform="translate(-180.000000, -67.000000)">
+        <path d="M210.016819,67.0000114 C209.658251,67.0000114 209.302173,67.0066422 208.948585,67.0199036 C192.471714,67.6195472 179.55764,81.3677601 180.011611,97.8259587 C180.465582,114.284157 194.117942,127.301656 210.602885,126.994681 C227.087829,126.687705 240.244676,113.170976 240.083848,96.7073182 C239.923021,80.2436609 226.504622,66.9858005 210.016819,67.0000114 L210.016819,67.0000114 L210.016819,67.0000114 Z M219.329629,110.26558 L216.500925,102.060041 L211.448601,102.060041 L211.448601,110.26558 L208.958545,110.26558 L208.958545,102.060041 L203.89128,102.060041 L201.062576,110.26558 L198.57252,110.26558 L201.876825,100.682506 L202.168161,99.8370864 L206.812116,86.3650833 L200.016753,86.3650833 L200.016753,83.8785564 L220.021865,83.8785564 L220.021865,86.3650833 L213.590049,86.3650833 L218.234004,99.8370864 L218.525341,100.682506 L221.829645,110.26558 L219.339589,110.26558 L219.329629,110.26558 L219.329629,110.26558 Z M211.448601,87.7973228 L211.448601,99.5685415 L215.639366,99.5685415 L211.82709,87.7973228 L211.448601,87.7973228 L211.448601,87.7973228 Z M204.75284,99.5685415 L208.948585,99.5685415 L208.948585,87.7973228 L208.565116,87.7973228 L204.75284,99.5685415 L204.75284,99.5685415 Z"></path>
+      </g>
+    </g>
+  </svg>
+  </a>
+</div>
+<script type="text/javascript">
+  var canvas = document.getElementById("canvas");
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  var Module = {};
+  Module.canvas = canvas;
+</script>
+<script async type="text/javascript" src="butterfly.js"></script>
+</body>
+</html>
